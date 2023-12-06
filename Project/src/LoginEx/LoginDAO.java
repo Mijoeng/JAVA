@@ -9,26 +9,7 @@ import java.util.List;
 
 
 public class LoginDAO {
-	static int idx = 0;
-	public void update(LoginVO board) {
-		StringBuilder sql = new StringBuilder();
-		sql.append("update Members ");
-		sql.append("   set id = ? ");
-		
-		
-		try (
-			Connection conn = new ConnectionFactory().getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql.toString());	
-				
-		){
-			pstmt.setString(1, board.getUid());
-		
-			
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+
 	
 	public void delete(String id, String pwd) {
 		StringBuilder sql = new StringBuilder();
@@ -97,12 +78,12 @@ public class LoginDAO {
 			PreparedStatement pstmt 
 				= conn.prepareStatement(sql.toString());
 		) {
-			pstmt.setString(1, list.get(idx).getUid());
-			pstmt.setString(2, list.get(idx).getName());
-			pstmt.setString(3, list.get(idx).getPw());
+			pstmt.setString(1, list.get(0).getUid());
+			pstmt.setString(2, list.get(0).getName());
+			pstmt.setString(3, list.get(0).getPw());
 			
 			pstmt.executeUpdate();
-			idx++;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -191,8 +172,3 @@ public class LoginDAO {
 }
 
 
-/*
- * 	select * 
- *    from tbl_memebers
- *   where uid = ? and pwd = ?
- */

@@ -3,11 +3,14 @@ package LoginEx;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 class MemberHandler {
 	List<LoginVO> list = new ArrayList<>();
 	private int idx;
 
-
+	public MemberHandler() { 
+		
+	}
 	public MemberHandler(int num) {
 
 		idx = 0;
@@ -90,7 +93,7 @@ class MemberHandler {
 	}
 	public void managerLogin() {
 		Scanner sc = new Scanner(System.in);
-		MemberHandler handler = new MemberHandler(100);
+		MemberHandler handler = new MemberHandler();
 		System.out.println("관리자 로그인 진행");
 		System.out.print("아이디 : ");
 		String uid = sc.nextLine();
@@ -117,7 +120,7 @@ class MemberHandler {
 		// System.out.println(user.getName());
 	}
 	private void Manager() {
-		MemberHandler handler = new MemberHandler(100);
+		MemberHandler handler = new MemberHandler();
 
 		while (true) {
 			System.out.println("------- 관리자 메뉴 선택 -------");
